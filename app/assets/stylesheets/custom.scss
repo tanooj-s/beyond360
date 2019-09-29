@@ -1,0 +1,143 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* universal */
+
+$beyond-blue: #1e5578;
+$black: #000000;
+
+body {
+  background-image: url("earth.jpg");
+  background-size: 100%;
+  padding-top: 70px;
+  font-family: "Trebuchet MS"
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.jumbotron {
+  margin: 50px 10px 10px 10px;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+
+#bg {
+  position: fixed;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.header-text {
+  color: $black;
+}
+
+.navbar {
+  height: 50px;
+}
+
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+
+}
+
+.navbar-nav.navbar-center li a {
+  color: $black;
+  font-size: 35px;
+}
+
+.navbar-brand img {
+  width: 220px;
+  height: 45px;
+  align: left;
+  margin-top: -12px;
+  margin-left: -20px;
+}
+
+ul.nav a:hover {
+  background-color: #009542 !important;
+  color: #def4c6;
+}
+
+header {
+  background-color: $beyond-blue;
+}
+
+/* form */
+
+.center-form {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+input {
+  width: 300px;
+  :focus {
+    border: 3px solid green;
+    background-color: lightblue;
+
+  }
+}
+
+
+textarea {
+  width: 500px;
+  height: 400px;
+  :focus {
+    width: 100%;
+    background-color: lightblue;
+  }
+}
+/* typography */
+
+footer {
+  text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}

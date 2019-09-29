@@ -1,0 +1,22 @@
+<% provide(:title, "Contact") %>
+<div class='center jumbotron'>
+  <h3>Contact us about a future trip via the form below, or feel free to email us at jankibeyond360@gmail.com, or call us at +919820509134. </h3>
+</div>
+
+<div class='center jumbotron center-block'>
+  <%= form_for @message, url: contact_path do |f| %>
+    <%= notice %>
+    <%= @message.errors.full_messages.join(', ') %>
+
+    <%= f.text_field :name, placeholder: 'name' %>
+    <br>
+    <br>
+    <%= f.email_field :email, placeholder: 'email' %>
+    <br>
+    <br>
+    <%= f.text_area :body, placeholder: 'Where do you want to go?' %>
+    <br>
+    <br>
+    <%= f.submit 'Send' %>
+  <% end %>
+</div>
