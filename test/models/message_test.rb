@@ -3,16 +3,17 @@ require 'test_helper'
 class MessageTest < ActiveSupport::TestCase
 
 
-  test 'responds to name, email and body' do
+  test 'responds to name, email, phone_number and body' do
     msg = Message.new
 
     assert msg.respond_to?(:name),  'does not respond to :name'
     assert msg.respond_to?(:email), 'does not respond to :email'
+    assert msg.respond_to?(:phone_number), 'does not response to :phone_number'
     assert msg.respond_to?(:body),  'does not respond to :body'
   end
 
   test "should be valid when all attributes are set" do
-    attrs = { name: "steve", email: "steve@example.com", body: "this is message" }
+    attrs = { name: "steve", email: "steve@example.com", phone_number: "2983478931", body: "this is message" }
     msg = Message.new attrs
     assert msg.valid?,'should be valid'
   end

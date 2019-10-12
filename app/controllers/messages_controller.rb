@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message_params = params.require(:message).permit(:name, :email, :body)
+    message_params = params.require(:message).permit(:name, :email, :phone_number, :body)
     @message = Message.new message_params
     if @message.valid?
       MessageMailer.contact_us(@message).deliver_now

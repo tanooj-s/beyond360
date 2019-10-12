@@ -9,6 +9,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'form' do
       assert_select 'input[type=text]'
       assert_select 'input[type=email]'
+      assert_select 'input[type=text]'
       assert_select 'textarea'
       assert_select 'input[type=submit]'
     end
@@ -16,11 +17,10 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   test "POST create" do
     assert_difference 'ActionMailer::Base.deliveries.size', 1 do
-
-
       post contact_path, params: {
         message: {
           name: 'cornholio',
+          phone_number: '+919900000000',
           email: 'cornholio@example.org',
           body: 'hai'
         }
@@ -34,7 +34,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   test "invalid POST create" do
     post contact_path, params: {
-      message: { name: '', email: '', body: '' }
+      message: { name: '', email: '', body: '', phone_number: '' }
     }
     assert_match /Name .* blank/, response.body
     assert_match /Email .* blank/, response.body
