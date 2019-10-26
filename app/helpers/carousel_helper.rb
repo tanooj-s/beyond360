@@ -1,11 +1,11 @@
 module CarouselHelper
-  def carousel_for(images)
-    Carousel.new(self, images).html
+  def carousel_for(images, captions)
+    Carousel.new(self, images, captions).html
   end
 
   class Carousel
-    def initialize(view, images)
-      @view, @images = view, images
+    def initialize(view, images, captions)
+      @view, @images, @captions = view, images, captions
       @uid = SecureRandom.hex(6)
     end
 
@@ -16,8 +16,8 @@ module CarouselHelper
 
     private
 
-    attr_accessor :view, :images, :uid
-    delegate :link_to, :content_tag, :image_tag, :safe_join, to: :view
+    attr_accessor :view, :images, :captions, :uid
+    delegate :link_to, :content_tag, :safe_join, :slide_tag, :image_tag, to: :view
 
     def indicators
       items = images.count.times.map { |index| indicator_tag(index) }
@@ -36,16 +36,23 @@ module CarouselHelper
     end
 
     def slides
-      items = images.map.with_index { |image, index| slide_tag(image, index.zero?) }
-      content_tag(:div, safe_join(items), class: 'carousel-inner')
+      slide_blocks = images.zip(captions, (0...images.length).to_a).map { |image, caption, index| slide_tag(image, caption, index.zero?) }
+      content_tag(:div, safe_join(slide_blocks), class: 'carousel-inner')
     end
 
-    def slide_tag(image, is_active)
+
+    def slide_tag(image, caption, is_active)
       options = {
         class: (is_active ? 'item active' : 'item')
       }
-      content_tag(:div, image_tag(image), options)
+      slide_block = safe_join([image_tag(image), caption_tag(caption)])
+      content_tag(:div, slide_block, options)
     end
+
+    def caption_tag(caption)
+      content_tag(:div, content_tag(:h3, caption), class: 'carousel-caption')
+    end
+
 
     def controls
       safe_join([control_tag('left'), control_tag('right')])

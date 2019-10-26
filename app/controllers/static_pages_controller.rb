@@ -21,6 +21,7 @@ class StaticPagesController < ApplicationController
     places = ['ahilya', 'andaman', 'assam', 'baku', 'borneo', 'hampi',
               'iceland', 'japan', 'mandu', 'orissa', 'samarkand', 'saputara']
     @tour_images = places.map { |place| "tours/#{place}.jpg" }
+    @tour_captions = places.map{ |place| place.capitalize }
   end
 
 
