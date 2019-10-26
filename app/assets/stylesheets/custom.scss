@@ -10,7 +10,7 @@
 
 /* universal */
 
-$beyond-blue: #1e5578;
+$beyond-blue: rgba(0,63,99,1);
 $black: #000000;
 
 body {
@@ -30,6 +30,7 @@ textarea {
 
 .jumbotron {
   margin: 50px 10px 10px 10px;
+  background-color: rgba(230,230,230,1)
 
 }
 
@@ -50,7 +51,7 @@ textarea {
 }
 
 .header-text {
-  color: $black;
+  color: rgba(30,30,30,1);
 }
 
 .navbar {
@@ -66,8 +67,8 @@ textarea {
 }
 
 .navbar-nav.navbar-center li a {
-  color: $black;
-  font-size: 35px;
+  color: rgba(15,15,15,1);
+  font-size: 32px;
 }
 
 .navbar-brand img {
@@ -79,8 +80,8 @@ textarea {
 }
 
 ul.nav a:hover {
-  background-color: #037034 !important;
-  color: #def4c6;
+  background-color: #002240 !important;
+  color: rgba(148,150,157,1);
 }
 
 header {
@@ -121,6 +122,12 @@ textarea {
   }
 }
 /* typography */
+
+.carousel-caption {
+  color: rgba(220,220,220,1);
+  text-shadow: 10px 10px 10px 10px rgba(10,10,10,1);
+}
+
 
 footer {
   text-align: right;

@@ -50,7 +50,7 @@ module CarouselHelper
     end
 
     def caption_tag(caption)
-      content_tag(:div, content_tag(:h3, caption), class: 'carousel-caption')
+      content_tag(:div, content_tag(:h2, caption), class: 'carousel-caption')
     end
 
 
