@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '>= 3.12.2'
 # Use Bootstrap for styling
 gem 'bootstrap-sass', '>= 3.4.1'
 
@@ -66,6 +66,8 @@ group :production do
   gem 'pg', '0.20.0'
   gem 'rails_serve_static_assets'
 end
+
+gem 'rack', '>= 2.0.8'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
