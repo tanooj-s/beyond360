@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     if @message.valid?
       MessageMailer.contact_us(@message).deliver_now
-      redirect_to new_message_url, notice: "Message received, thanks!"
+      redirect_to new_message_url, notice: "Thank you for your message, we will reply to you as soon as possible!"
     else
       render :new
     end
