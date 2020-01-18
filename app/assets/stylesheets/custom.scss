@@ -15,7 +15,8 @@ $black: #000000;
 
 body {
   background-image: image-url("earth.jpg");
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   padding-top: 70px;
   font-family: "Trebuchet MS"
 }
@@ -153,6 +154,6 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 0.8em;
   line-height: 1.7em;
 }
